@@ -1,21 +1,90 @@
 package com.sparta.wt.Model.BinarySearch;
 
-public interface BinaryTree {
-    int getRootElement();
+public class BinaryTree implements BinaryTreeInterface {
 
-    int getNumberOfElements();
+    //public method - Interface
+    //private method - Implementation
+    private final Node rootNode;
+    private int numberOfNodes = 1;
 
-    void addElement(int element);
+    public BinaryTree(final int element) {rootNode = new Node(element);}
+    //new BinaryTreeBuilder(100) creates a new binary tree, where root node
+    //has value 100. Nodes have been hidden from user.
 
-    void addElements(final int[] elements);
+    @Override
+    public int getRootElement() {
+        return rootNode.getValue();
+    }
 
-    boolean findElement(int value);
+    @Override
+    public int getNumberOfElements() {
+        return numberOfNodes;
+    }
 
-    int getLeftChild(int element) throws ChildNotFoundException;
+    @Override
+    public void addElement(int element) {addNodeToTree(rootNode, element);}
 
-    int getRightChild(int element) throws ChildNotFoundException;
+    @Override
+    public void addElements(int[] elements) {
+        for (int e : elements) {
+            addNodeToTree(rootNode, e);
+        }
+    }
 
-    int[] getSortedTreeAsc();
+    public boolean findElement(int element) {return findNode(element) != null;}
 
-    int[] getSortedTreeDesc();
+    @Override
+    public int getLeftChild(int element) throws ChildNotFoundException {
+        return 0;
+    }
+
+    @Override
+    public int getRightChild(int element) throws ChildNotFoundException {
+        return 0;
+    }
+
+    @Override
+    public int[] getSortedTreeAsc() {
+        return new int[0];
+    }
+
+    @Override
+    public int[] getSortedTreeDesc() {
+        return new int[0];
+    }
+
+    private void addNodeToTree(Node node, int element) {
+        if (element <= node.getValue()) {
+            if (!node.hasLeftChild()) {
+                Node leftChild = new Node(element);
+                node.setLeftChild(leftChild);
+                numberOfNodes++;
+            } else {
+                addNodeToTree(node.getLeftChild(), element);
+            }
+        } else { //element > node.getValue()
+            if (!node.hasRightChild()) {
+                Node rightChild = new Node(element);
+                node.setRightChild(rightChild);
+                numberOfNodes++;
+            } else {
+                addNodeToTree(node.getRightChild(), element);
+            }
+        }
+    }
+
+    private Node findNode(final int element) {
+        Node node = rootNode;
+        while (node != null) {
+            if (element == node.getValue()) {
+                return node;
+            } else if (element < node.getValue()) {
+                node = node.getLeftChild();
+            } else {
+                node = node.getRightChild();
+            }
+        }
+        return null;
+    }
+
 }
