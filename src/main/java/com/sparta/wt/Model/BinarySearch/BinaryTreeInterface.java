@@ -1,5 +1,7 @@
 package com.sparta.wt.Model.BinarySearch;
 
+import com.sparta.wt.Exceptions.ChildNotFoundException;
+
 public interface BinaryTreeInterface {
     int getRootElement();
 
