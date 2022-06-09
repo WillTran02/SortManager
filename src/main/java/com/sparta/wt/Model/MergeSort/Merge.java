@@ -1,5 +1,6 @@
 package com.sparta.wt.Model.MergeSort;
 
+import com.sparta.wt.LogConfiguration;
 import com.sparta.wt.Model.Sorter;
 
 import java.util.Arrays;
@@ -12,7 +13,6 @@ public class Merge implements Sorter {
 
     public static int[] mergeSort(int[] array) {
         if (array == null || array.length <= 1) return array;
-        com.sparta.wt.LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/MergeSort/mergeLog.log");
         logger.log(Level.INFO, "mergeSort start:");
         int middleIndex = array.length / 2;
         int remainder = array.length % 2;
@@ -60,7 +60,10 @@ public class Merge implements Sorter {
     }
 
     @Override
-    public int[] sortArray(int[] array) {return mergeSort(array);}
+    public int[] sortArray(int[] array) {
+        com.sparta.wt.LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/MergeSort/MergeLog.log");
+        return mergeSort(array);
+    }
 
     @Override
     public String toString() {return "MergeSort";}

@@ -2,7 +2,6 @@ package com.sparta.wt.Model.BinarySearch;
 
 import com.sparta.wt.Exceptions.ChildNotFoundException;
 import com.sparta.wt.LogConfiguration;
-import com.sparta.wt.Model.Sorter;
 
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -100,7 +99,6 @@ public class BinaryTree implements BinaryTreeInterface {
     }
 
     private void addNodeToTree(Node node, int element) {
-        LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BinarySearch/TreeLog.log");
         if (element <= node.getValue()) {
             if (!node.hasLeftChild()) {
                 Node leftChild = new Node(element);
@@ -123,7 +121,6 @@ public class BinaryTree implements BinaryTreeInterface {
     }
 
     private Node findNode(final int element) {
-        LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BinarySearch/TreeLog.log");
         logger.log(Level.INFO, "Now searching for node: " + element);
         Node node = rootNode;
         while (node != null) {
@@ -141,7 +138,6 @@ public class BinaryTree implements BinaryTreeInterface {
     }
 
     private int getLeftChildNode(int element) throws ChildNotFoundException {
-        LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BinarySearch/TreeLog.log");
         if (findElement(element)) {
             Node currentNode = findNode(element);
             if (currentNode.hasLeftChild()) {
@@ -154,7 +150,6 @@ public class BinaryTree implements BinaryTreeInterface {
     }
 
     private int getRightChildNode(int element) throws ChildNotFoundException {
-        LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BinarySearch/TreeLog.log");
         if (findElement(element)) {
             Node currentNode = findNode(element);
             if (currentNode.hasRightChild()) {
@@ -167,7 +162,6 @@ public class BinaryTree implements BinaryTreeInterface {
     }
 
     private int[] sortTreeAsc(Node node) {
-        LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BinarySearch/TreeLog.log");
         treeArray = new int[numberOfNodes]; //Reinitialize array to size of tree
         logger.log(Level.INFO, "New treeArray of size " + treeArray.length + " has been created.");
         traverseAsc(node);
@@ -177,7 +171,6 @@ public class BinaryTree implements BinaryTreeInterface {
     }
 
     private void traverseAsc(Node node) {
-        logger.log(Level.INFO, "Now traversing: " + (node==null ? "an empty space." : node.getValue()));
         if (node == null) return; //Ignore node if doesn't exist
         traverseAsc(node.getLeftChild());
         logger.log(Level.INFO, "Now adding: " + node.getValue() + " to treeArray: " + Arrays.toString(treeArray));
@@ -186,7 +179,6 @@ public class BinaryTree implements BinaryTreeInterface {
     }
 
     private int[] sortTreeDesc(Node node) {
-        LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BinarySearch/TreeLog.log");
         treeArray = new int[numberOfNodes]; //Reinitialize array to size of tree
         logger.log(Level.INFO, "New treeArray of size " + treeArray.length + " has been created.");
         traverseDesc(node);

@@ -13,7 +13,7 @@ public class Bubble implements Sorter {
     static boolean swapped = false;
 
     public static int[] bubbleSort(int[] numbers) {
-        LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BubbleSort/newLog.log");
+        LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BubbleSort/BubbleLog.log");
         logger.log(Level.INFO, "bubbleSort method initiated");
         int[] sortedNumbers = numbers.clone();
         logger.log(Level.INFO, "Current array: " + Arrays.toString(sortedNumbers));
