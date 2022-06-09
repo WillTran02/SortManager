@@ -14,6 +14,7 @@ public class Bubble implements Sorter {
 
     public static int[] bubbleSort(int[] numbers) {
         LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BubbleSort/BubbleLog.log");
+        logger.setLevel(Level.OFF);
         logger.log(Level.INFO, "bubbleSort method initiated");
         int[] sortedNumbers = numbers.clone();
         logger.log(Level.INFO, "Current array: " + Arrays.toString(sortedNumbers));

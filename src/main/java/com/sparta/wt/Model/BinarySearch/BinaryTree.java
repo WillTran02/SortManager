@@ -40,6 +40,7 @@ public class BinaryTree implements BinaryTreeInterface {
 
     public BinaryTree(final int element) {
         LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BinarySearch/TreeLog.log");
+        logger.setLevel(Level.OFF);
         rootNode = new Node(element);
         logger.log(Level.INFO, "New BinaryTree instantiated! rootNode: " + rootNode.getValue());
     }

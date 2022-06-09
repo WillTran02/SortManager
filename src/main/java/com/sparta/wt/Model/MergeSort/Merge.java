@@ -62,6 +62,7 @@ public class Merge implements Sorter {
     @Override
     public int[] sortArray(int[] array) {
         com.sparta.wt.LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/MergeSort/MergeLog.log");
+        logger.setLevel(Level.OFF);
         return mergeSort(array);
     }
 
