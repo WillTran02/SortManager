@@ -46,7 +46,8 @@ public class SortManager {
         int option;
         try {
             option = Integer.parseInt(input);
-        } catch (NumberFormatException e) {
+            if (option < 0) throw new NegativeArraySizeException();
+        } catch (NumberFormatException | NegativeArraySizeException e) {
             logger.log(Level.INFO, "Exception: The input was not a valid option");
             throw new IllegalArgumentException("You have entered something invalid: " + input);
         }
