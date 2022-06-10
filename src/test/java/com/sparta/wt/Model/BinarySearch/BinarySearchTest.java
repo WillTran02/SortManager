@@ -1,15 +1,24 @@
 package com.sparta.wt.Model.BinarySearch;
 
-import com.sparta.wt.Model.BinarySearch.BinaryTree;
+import com.sparta.wt.LogConfiguration;
 import com.sparta.wt.Exceptions.ChildNotFoundException;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Executable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class BinarySearchTest {
+
+    private static final Logger logger = LogConfiguration.getLogger();
+
+    @BeforeAll
+    static void setup() {
+        logger.setLevel(Level.OFF);
+    }
 
     @Test
     @DisplayName("Check: Instantiate a Binary Tree with a root of 50")
@@ -40,8 +49,8 @@ public class BinarySearchTest {
     void checkFindingSpecificElement() {
         BinaryTree tree = new BinaryTree(50);
         tree.addElements(new int[]{12, 92, 33, 57});
-        Assertions.assertEquals(true, tree.findElement(12));
-        Assertions.assertEquals(false, tree.findElement(102));
+        Assertions.assertTrue(tree.findElement(12));
+        Assertions.assertFalse(tree.findElement(102));
     }
 
     @Test
@@ -50,7 +59,7 @@ public class BinarySearchTest {
         BinaryTree tree = new BinaryTree(50);
         tree.addElements(new int[]{12, 92});
         Assertions.assertEquals(12, tree.getLeftChild(50));
-//        Assertions.assertThrows(ChildNotFoundException.class, tree.getLeftChild(12));
+        Assertions.assertThrows(ChildNotFoundException.class, () -> tree.getLeftChild(12));
     }
 
     @Test
@@ -59,6 +68,7 @@ public class BinarySearchTest {
         BinaryTree tree = new BinaryTree(50);
         tree.addElements(new int[]{12, 92});
         Assertions.assertEquals(92, tree.getRightChild(50));
+        Assertions.assertThrows(ChildNotFoundException.class, () -> tree.getRightChild(92));
     }
 
     @Test

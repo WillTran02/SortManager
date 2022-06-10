@@ -1,16 +1,28 @@
 package com.sparta.wt.Model.MergeSort;
 
+import com.sparta.wt.LogConfiguration;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class MergeTest {
+
+    private static final Logger logger = LogConfiguration.getLogger();
 
     int[] blankArray = new int[0];
     int[] filledArray = {1, 2, 3};
     int[] filledArray2 = {4, 5, 6, 7, 8};
     int[] filledMergedArray = {1, 1, 2, 2, 3, 3};
     int[] filledMergedArray2 = {1, 2, 3, 4, 5, 6, 7, 8};
+
+    @BeforeAll
+    static void setup() {
+        logger.setLevel(Level.OFF);
+    }
 
     @Test
     @DisplayName("check: entering blank arrays returns a blank array")

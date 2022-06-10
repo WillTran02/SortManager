@@ -1,11 +1,17 @@
 package com.sparta.wt.Model.InsertionSort;
 
+import com.sparta.wt.LogConfiguration;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class InserterTest {
 
+    private static final Logger logger = LogConfiguration.getLogger();
     int[] singleValueArray = new int[] {1};
     int[] unsortedArray = new int[] {5, 1, 2, 4, 3};
     int[] sortedArray = new int[] {1, 2, 3, 4, 5};
@@ -13,6 +19,11 @@ public class InserterTest {
     int[] negativeSortedArray = new int[] {-5, -3, -1, 1, 3, 5};
 
     Inserter insertSorter = new Inserter();
+
+    @BeforeAll
+    static void setup() {
+        logger.setLevel(Level.OFF);
+    }
 
     @Test
     @DisplayName("check: return null from null")

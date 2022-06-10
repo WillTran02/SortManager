@@ -1,10 +1,22 @@
 package com.sparta.wt.Model.BubbleSort;
 
+import com.sparta.wt.LogConfiguration;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class BubbleTest {
+
+    private static final Logger logger = LogConfiguration.getLogger();
+
+    @BeforeAll
+    static void setup() {
+        logger.setLevel(Level.OFF);
+    }
 
     @Test
     @DisplayName("check: return {1} when entering {1}")
