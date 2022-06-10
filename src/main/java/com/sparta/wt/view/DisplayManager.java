@@ -48,7 +48,7 @@ public class DisplayManager {
     }
 
     private static boolean confirmInputForRepeat() {
-        System.out.println("Would you like to re-run the program?\n[Y] for yes, or any other key to close.");
+        System.out.println("\nWould you like to re-run the program?\n[Y] for yes, or any other key to close.");
         input = console.nextLine();
         logger.log(Level.INFO, "User input received: " + input);
         return input.equalsIgnoreCase("y"); //"y" (case insensitive) to repeat, anything else exits program
