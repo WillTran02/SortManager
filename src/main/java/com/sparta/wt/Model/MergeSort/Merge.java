@@ -9,7 +9,9 @@ import java.util.logging.Logger;
 
 public class Merge implements Sorter {
 
-    private static final Logger logger = Logger.getLogger("MergeLogger");
+    private static final Logger logger = LogConfiguration.getLogger();
+    private static double startTime = 0;
+    private static double finishTime = 0;
 
     public static int[] mergeSort(int[] array) {
         if (array == null || array.length <= 1) return array;
@@ -61,9 +63,15 @@ public class Merge implements Sorter {
 
     @Override
     public int[] sortArray(int[] array) {
-        com.sparta.wt.LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/MergeSort/MergeLog.log");
-        logger.setLevel(Level.OFF);
-        return mergeSort(array);
+        startTime = System.nanoTime();
+        int[] sortedArray = mergeSort(array);
+        finishTime = System.nanoTime();
+        return sortedArray;
+    }
+
+    @Override
+    public double getTimeTaken() {
+        return finishTime - startTime;
     }
 
     @Override

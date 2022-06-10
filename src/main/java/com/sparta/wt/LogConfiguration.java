@@ -9,9 +9,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LogConfiguration {
-    public static void setLogConfiguration(Logger logger, String pattern) {
+
+    private static final Logger logger = Logger.getLogger("General Logger");
+    public static void setLogConfiguration() {
         try {
-            Handler fileHandler = new FileHandler(pattern);
+            Handler fileHandler = new FileHandler("src/main/java/com/sparta/wt/generalLog.log");
             logger.addHandler(fileHandler);
             fileHandler.setFormatter(new CustomFormatter());
         } catch (IOException e) {
@@ -19,13 +21,5 @@ public class LogConfiguration {
         }
     }
 
-    public static void setLogConfiguration(Logger logger, String pattern, boolean append) {
-        try {
-            Handler fileHandler = new FileHandler(pattern, append);
-            logger.addHandler(fileHandler);
-            fileHandler.setFormatter(new CustomFormatter());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    public static Logger getLogger() {return logger;}
 }

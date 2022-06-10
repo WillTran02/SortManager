@@ -9,23 +9,22 @@ import java.util.logging.Logger;
 
 public class Bubble implements Sorter {
 
-    private static final Logger logger = Logger.getLogger("BubbleLogger");
-    static boolean swapped = false;
+    private static final Logger logger = LogConfiguration.getLogger();
+    private static double startTime;
+    private static double finishTime;
 
     public static int[] bubbleSort(int[] numbers) {
-        LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BubbleSort/BubbleLog.log");
-        logger.setLevel(Level.OFF);
         logger.log(Level.INFO, "bubbleSort method initiated");
         int[] sortedNumbers = numbers.clone();
         logger.log(Level.INFO, "Current array: " + Arrays.toString(sortedNumbers));
+        startTime = System.nanoTime();
+        boolean swapped;
         do {
             swapped = false;
-//        System.out.println("bubbleSort Initialized");
             for (int i = 1; i < sortedNumbers.length; i++) {
                 logger.log(Level.INFO, "for loop: iteration " + i + ", comparing: " + sortedNumbers[i - 1] + " and " + sortedNumbers[i] + "...");
                 if (sortedNumbers[i - 1] > sortedNumbers[i]) {
                     logger.log(Level.INFO, "swapping: " + sortedNumbers[i - 1] + " with " + sortedNumbers[i] + "...");
-//                System.out.println("Swapping " + newNumbers[i-1] + " with " + newNumbers[i]);
                     swapped = true;
                     int temp = sortedNumbers[i - 1];
                     sortedNumbers[i - 1] = sortedNumbers[i];
@@ -35,6 +34,7 @@ public class Bubble implements Sorter {
             logger.log(Level.INFO, "Did a swap occur? " + swapped);
             logger.log(Level.INFO, swapped ? "repeating..." : "finishing...");
         } while(swapped);
+        finishTime = System.nanoTime();
         logger.log(Level.INFO, "Finalized array: " + Arrays.toString(sortedNumbers));
         logger.log(Level.INFO, "exiting bubbleSort method.");
         return sortedNumbers;
@@ -43,6 +43,11 @@ public class Bubble implements Sorter {
     @Override
     public int[] sortArray(int[] array) {
         return bubbleSort(array);
+    }
+
+    @Override
+    public double getTimeTaken() {
+        return finishTime - startTime;
     }
 
     @Override

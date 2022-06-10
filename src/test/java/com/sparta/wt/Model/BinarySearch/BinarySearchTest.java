@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Executable;
 
+
 public class BinarySearchTest {
 
     @Test
@@ -49,9 +50,7 @@ public class BinarySearchTest {
         BinaryTree tree = new BinaryTree(50);
         tree.addElements(new int[]{12, 92});
         Assertions.assertEquals(12, tree.getLeftChild(50));
-//        ChildNotFoundException exception = new ChildNotFoundException("Test Exception");
-//        Executable executable = (e) -> tree.getLeftChild(12);
-//        Assertions.assertThrows(exception.getClass(), tree.getLeftChild(12));
+//        Assertions.assertThrows(ChildNotFoundException.class, tree.getLeftChild(12));
     }
 
     @Test

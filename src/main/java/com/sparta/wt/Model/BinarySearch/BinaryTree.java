@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class BinaryTree implements BinaryTreeInterface {
 
-    private Logger logger = Logger.getLogger("BinaryTreeLogger");
+    private Logger logger = LogConfiguration.getLogger();
 
     private static class Node {
 
@@ -39,14 +39,9 @@ public class BinaryTree implements BinaryTreeInterface {
     private int[] treeArray; //Will be reinitialized when getSortedTreeAsc or getSortedTreeDesc is called
 
     public BinaryTree(final int element) {
-        LogConfiguration.setLogConfiguration(logger, "src/main/java/com/sparta/wt/Model/BinarySearch/TreeLog.log");
-        logger.setLevel(Level.OFF);
         rootNode = new Node(element);
         logger.log(Level.INFO, "New BinaryTree instantiated! rootNode: " + rootNode.getValue());
     }
-    //new BinaryTreeBuilder(100) creates a new binary tree, where root node
-    //has value 100. Nodes have been hidden from user.
-    public BinaryTree() {rootNode = null;}
 
     @Override
     public int getRootElement() {
@@ -61,14 +56,17 @@ public class BinaryTree implements BinaryTreeInterface {
     @Override
     public void addElement(int element) {
         if (rootNode == null) {
+            logger.log(Level.INFO, "Rootnode empty, now adding " + element + " as rootnode");
             rootNode = new Node(element);
             return;
         }
+        logger.log(Level.INFO, "Now adding: " + element);
         addNodeToTree(rootNode, element);
     }
 
     @Override
     public void addElements(int[] elements) {
+        logger.log(Level.INFO, "Now adding array: " + Arrays.toString(elements));
         for (int e : elements) {
             addNodeToTree(rootNode, e);
         }
@@ -76,26 +74,31 @@ public class BinaryTree implements BinaryTreeInterface {
 
     @Override
     public boolean findElement(int element) {
+        logger.log(Level.INFO, "Now finding: " + element);
         return findNode(element) != null;
     }
 
     @Override
     public int getLeftChild(int element) throws ChildNotFoundException {
+        logger.log(Level.INFO, "Left Child of " + element + " requested");
         return getLeftChildNode(element);
     }
 
     @Override
     public int getRightChild(int element) throws ChildNotFoundException {
+        logger.log(Level.INFO, "Right Child of " + element + " requested");
         return getRightChildNode(element);
     }
 
     @Override
     public int[] getSortedTreeAsc() {
+        logger.log(Level.INFO, "New Sorted Tree Ascending requested");
         return sortTreeAsc(rootNode);
     }
 
     @Override
     public int[] getSortedTreeDesc() {
+        logger.log(Level.INFO, "New Sorted Tree Descending requested");
         return sortTreeDesc(rootNode);
     }
 
