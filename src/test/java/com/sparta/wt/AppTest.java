@@ -1,5 +1,6 @@
 package com.sparta.wt;
 
+import com.sparta.wt.Model.InsertionSort.Inserter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -38,6 +39,9 @@ public class AppTest {
     void checkTree() {
         Assertions.assertSame(SortManager.getSortMethod("3").getClass(), TreeSort.class);
     }
+    @Test
+    @DisplayName("check SortManager: getSortMethod(4) returns Inserter")
+    void checkInsert() { Assertions.assertSame(SortManager.getSortMethod("4").getClass(), Inserter.class); }
 
     @Test
     @DisplayName("check SortManager: getArraySize(100) returns int 100")
@@ -55,6 +59,8 @@ public class AppTest {
         System.out.println("Array sorted via " + SortManager.getSortMethod("2") + ":\n" + Arrays.toString(SortManager.getSortMethod("2").sortArray(unsortedArray)));
         Assertions.assertArrayEquals(sortedArray, SortManager.getSortMethod("3").sortArray(unsortedArray));
         System.out.println("Array sorted via " + SortManager.getSortMethod("3") + ":\n" + Arrays.toString(SortManager.getSortMethod("3").sortArray(unsortedArray)));
+        Assertions.assertArrayEquals(sortedArray, SortManager.getSortMethod("4").sortArray(unsortedArray));
+        System.out.println("Array sorted via " + SortManager.getSortMethod("4") + ":\n" + Arrays.toString(SortManager.getSortMethod("4").sortArray(unsortedArray)));
     }
 
 }

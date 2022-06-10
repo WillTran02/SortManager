@@ -26,6 +26,7 @@ public class AppPerformanceTest {
         perfTest(SortManager.getSortMethod("1"));
         perfTest(SortManager.getSortMethod("2"));
         perfTest(SortManager.getSortMethod("3"));
+        perfTest(SortManager.getSortMethod("4"));
     }
 
     static void perfTest(Sorter sortAlgorithm) {
