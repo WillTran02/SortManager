@@ -1,15 +1,15 @@
 package com.sparta.wt;
 
-import com.sparta.wt.Model.InsertionSort.Inserter;
+import com.sparta.wt.model.insertion_sort.Inserter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.sparta.wt.Controller.SortManager;
-import com.sparta.wt.Model.BinarySearch.TreeSort;
-import com.sparta.wt.Model.BubbleSort.Bubble;
-import com.sparta.wt.Model.MergeSort.Merge;
+import com.sparta.wt.controller.SortManager;
+import com.sparta.wt.model.binary_tree_sort.TreeSort;
+import com.sparta.wt.model.bubble_sort.Bubble;
+import com.sparta.wt.model.merge_sort.Merge;
 
 import java.util.Arrays;
 import java.util.logging.Level;

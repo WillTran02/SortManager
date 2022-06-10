@@ -1,4 +1,4 @@
-package com.sparta.wt.Model;
+package com.sparta.wt.model;
 
 public interface Sorter {
     int[] sortArray(int[] array);

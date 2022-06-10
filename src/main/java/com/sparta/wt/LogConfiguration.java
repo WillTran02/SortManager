@@ -1,11 +1,10 @@
 package com.sparta.wt;
 
-import com.sparta.wt.Logging.CustomFormatter;
+import com.sparta.wt.logging.CustomFormatter;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LogConfiguration {

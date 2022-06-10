@@ -1,4 +1,4 @@
-package com.sparta.wt.Model.MergeSort;
+package com.sparta.wt.model.merge_sort;
 
 import com.sparta.wt.LogConfiguration;
 import org.junit.jupiter.api.Assertions;

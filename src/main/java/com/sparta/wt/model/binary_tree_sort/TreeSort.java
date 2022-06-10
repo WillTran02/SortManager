@@ -1,6 +1,6 @@
-package com.sparta.wt.Model.BinarySearch;
+package com.sparta.wt.model.binary_tree_sort;
 
-import com.sparta.wt.Model.Sorter;
+import com.sparta.wt.model.Sorter;
 
 public class TreeSort implements Sorter {
 

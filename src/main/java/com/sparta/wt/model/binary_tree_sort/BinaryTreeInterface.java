@@ -1,6 +1,6 @@
-package com.sparta.wt.Model.BinarySearch;
+package com.sparta.wt.model.binary_tree_sort;
 
-import com.sparta.wt.Exceptions.ChildNotFoundException;
+import com.sparta.wt.exceptions.ChildNotFoundException;
 
 public interface BinaryTreeInterface {
     int getRootElement();

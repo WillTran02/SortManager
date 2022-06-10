@@ -1,7 +1,7 @@
-package com.sparta.wt.Model.BubbleSort;
+package com.sparta.wt.model.bubble_sort;
 
 import com.sparta.wt.LogConfiguration;
-import com.sparta.wt.Model.Sorter;
+import com.sparta.wt.model.Sorter;
 
 import java.util.Arrays;
 import java.util.logging.Level;

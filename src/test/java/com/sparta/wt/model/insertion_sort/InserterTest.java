@@ -1,4 +1,4 @@
-package com.sparta.wt.Model.InsertionSort;
+package com.sparta.wt.model.insertion_sort;
 
 import com.sparta.wt.LogConfiguration;
 import org.junit.jupiter.api.Assertions;

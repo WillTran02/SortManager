@@ -1,8 +1,8 @@
-package com.sparta.wt.View;
+package com.sparta.wt.view;
 
-import com.sparta.wt.Controller.SortManager;
+import com.sparta.wt.controller.SortManager;
 import com.sparta.wt.LogConfiguration;
-import com.sparta.wt.Model.Sorter;
+import com.sparta.wt.model.Sorter;
 
 import java.util.Arrays;
 import java.util.Scanner;

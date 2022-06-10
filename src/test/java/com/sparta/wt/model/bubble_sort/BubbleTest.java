@@ -1,4 +1,4 @@
-package com.sparta.wt.Model.BubbleSort;
+package com.sparta.wt.model.bubble_sort;
 
 import com.sparta.wt.LogConfiguration;
 import org.junit.jupiter.api.Assertions;

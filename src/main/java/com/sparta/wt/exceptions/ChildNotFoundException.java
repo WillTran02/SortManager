@@ -1,4 +1,4 @@
-package com.sparta.wt.Exceptions;
+package com.sparta.wt.exceptions;
 
 public class ChildNotFoundException extends Exception {
 

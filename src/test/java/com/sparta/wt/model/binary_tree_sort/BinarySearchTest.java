@@ -1,7 +1,7 @@
-package com.sparta.wt.Model.BinarySearch;
+package com.sparta.wt.model.binary_tree_sort;
 
 import com.sparta.wt.LogConfiguration;
-import com.sparta.wt.Exceptions.ChildNotFoundException;
+import com.sparta.wt.exceptions.ChildNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;

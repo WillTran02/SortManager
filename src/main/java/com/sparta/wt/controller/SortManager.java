@@ -1,11 +1,11 @@
-package com.sparta.wt.Controller;
+package com.sparta.wt.controller;
 
 import com.sparta.wt.LogConfiguration;
-import com.sparta.wt.Model.BinarySearch.TreeSort;
-import com.sparta.wt.Model.BubbleSort.Bubble;
-import com.sparta.wt.Model.InsertionSort.Inserter;
-import com.sparta.wt.Model.MergeSort.Merge;
-import com.sparta.wt.Model.Sorter;
+import com.sparta.wt.model.binary_tree_sort.TreeSort;
+import com.sparta.wt.model.bubble_sort.Bubble;
+import com.sparta.wt.model.insertion_sort.Inserter;
+import com.sparta.wt.model.merge_sort.Merge;
+import com.sparta.wt.model.Sorter;
 
 import java.util.Random;
 import java.util.logging.Level;
