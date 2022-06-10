@@ -39,7 +39,7 @@ public class DisplayManager {
             System.out.println("-------------------\nYour chosen sorting algorithm: " + chosenSorter);
             int[] sortedArray = chosenSorter.sortArray(arrayOfNumbers); //Create new array of sorted numbers
             System.out.println("-------------------\nYour array, sorted:\n" + Arrays.toString(sortedArray));
-            System.out.println("-------------------\nTime taken to complete the sort: " + chosenSorter.getTimeTaken() / 1_000_000 + "ms");
+            System.out.println("-------------------\nTime taken to complete the sort: " + chosenSorter.getTimeTaken() / 1_000_000 + "ms\n-------------------");
             valid = false; //Reset flag
             input = null; //Reset input
             repeating = confirmInputForRepeat();
@@ -48,7 +48,7 @@ public class DisplayManager {
     }
 
     private static boolean confirmInputForRepeat() {
-        System.out.println("\nWould you like to re-run the program?\n[Y] for yes, or any other key to close.");
+        System.out.println("Would you like to re-run the program?\n[Y] for yes, or any other key to close.");
         input = console.nextLine();
         logger.log(Level.INFO, "User input received: " + input);
         return input.equalsIgnoreCase("y"); //"y" (case insensitive) to repeat, anything else exits program
