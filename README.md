@@ -14,7 +14,7 @@ The SortManager is an application that can be used to compare the time taken to 
 - The program will ask you to choose a sorting algorithm
 - After selecting an algorithm, the program will ask you to enter a number. This number will determine how large of a sample size to generate
 - Next, the program will display the following information:
-1. The size of the sample array, which will be populated with random numbers
+1. The sample array, which will be populated with random numbers
 2. The chosen sorting algorithm
 3. The sample array again, sorted in ascending order
 4. The time taken to complete the sorting operation
