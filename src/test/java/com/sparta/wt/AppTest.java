@@ -50,6 +50,10 @@ public class AppTest {
     }
 
     @Test
+    @DisplayName("check SortManager: getArraySize(-100) throws IllegalArgumentException")
+    void checkNegativeArraySizeThrowsException() { Assertions.assertThrows(IllegalArgumentException.class, () -> SortManager.getArraySize("-100")); }
+
+    @Test
     @DisplayName("check SortManager: sort array using interface method")
     void checkSortingFunctionality() {
         System.out.println("Unsorted Array:\n" + Arrays.toString(unsortedArray));

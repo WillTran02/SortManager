@@ -26,9 +26,7 @@ public class Bubble implements Sorter {
                 if (sortedNumbers[i - 1] > sortedNumbers[i]) {
                     logger.log(Level.INFO, "swapping: " + sortedNumbers[i - 1] + " with " + sortedNumbers[i] + "...");
                     swapped = true;
-                    int temp = sortedNumbers[i - 1];
-                    sortedNumbers[i - 1] = sortedNumbers[i];
-                    sortedNumbers[i] = temp;
+                    swapElementInArrayWithOneBefore(sortedNumbers, i);
                 }
             }
             logger.log(Level.INFO, "Did a swap occur? " + swapped);
@@ -38,6 +36,12 @@ public class Bubble implements Sorter {
         logger.log(Level.INFO, "Finalized array: " + Arrays.toString(sortedNumbers));
         logger.log(Level.INFO, "exiting bubbleSort method.");
         return sortedNumbers;
+    }
+
+    private static void swapElementInArrayWithOneBefore(int[] sortedNumbers, int i) {
+        int temp = sortedNumbers[i - 1];
+        sortedNumbers[i - 1] = sortedNumbers[i];
+        sortedNumbers[i] = temp;
     }
 
     @Override

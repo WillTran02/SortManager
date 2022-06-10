@@ -19,44 +19,66 @@ public class DisplayManager {
     private static final Scanner console = new Scanner(System.in); //User input stream
 
     public static void start() {
-        logger.setLevel(Level.OFF);
+
         boolean repeating; //boolean flag for if the program should re-run or not
         LogConfiguration.setLogConfiguration();
+        logger.setLevel(Level.OFF);
+
         do {
             valid = false; //Reset flag
             input = null; //Reset input
-            System.out.println("Hello and welcome to the Sort Manager!\n");
-            System.out.println("To begin with, please enter a number 1-4 \nto decide what sort method to use!");
+
+            System.out.println("\n" +
+                    "Hello and welcome to the Sort Manager!\n");
+            System.out.println("To begin with, please enter a number 1-4\n" +
+                    "to decide what sort method to use!");
+
             confirmInputForChosenSorter();
-            System.out.println("-------------------\nOkay! You have chosen to use: " + chosenSorter + "!");
+
+            System.out.println("-------------------\n" +
+                    "Okay! You have chosen to use: " + chosenSorter + "!");
             System.out.println("Now to create an array of random numbers!");
+
             valid = false; //Reset flag
             input = null; //Reset input
+
             confirmInputForArraySize();
+
             int[] arrayOfNumbers = new int[arraySize]; //Create primitive int array of size requested by user
+
             SortManager.fillArrayWithRandomNumbers(arrayOfNumbers);
-            System.out.println("-------------------\nLet's start!\nYour array of size " + arraySize + " and random numbers:\n" + Arrays.toString(arrayOfNumbers));
-            System.out.println("-------------------\nYour chosen sorting algorithm: " + chosenSorter);
+
+            System.out.println("-------------------\n" +
+                    "Let's start!\n" +
+                    "Your " + arraySize + " random numbers in an array:\n" +
+                    "" + Arrays.toString(arrayOfNumbers));
+            System.out.println("-------------------\n" +
+                    "Your chosen sorting algorithm: " + chosenSorter);
+
             int[] sortedArray = chosenSorter.sortArray(arrayOfNumbers); //Create new array of sorted numbers
-            System.out.println("-------------------\nYour array, sorted:\n" + Arrays.toString(sortedArray));
-            System.out.println("-------------------\nTime taken to complete the sort: " + chosenSorter.getTimeTaken() / 1_000_000 + "ms\n-------------------");
+
+            System.out.println("-------------------\n" +
+                    "Your array, sorted:\n" +
+                    "" + Arrays.toString(sortedArray));
+            System.out.println("-------------------\n" +
+                    "Time taken to complete the sort: " + chosenSorter.getTimeTaken() / 1_000_000 + "ms\n" +
+                    "-------------------");
+
             valid = false; //Reset flag
             input = null; //Reset input
+
             repeating = confirmInputForRepeat();
+
         } while (repeating);
         System.out.println("Thank you for using the Sort Manager!"); //Exit program
     }
 
-    private static boolean confirmInputForRepeat() {
-        System.out.println("Would you like to re-run the program?\n[Y] for yes, or any other key to close.");
-        input = console.nextLine();
-        logger.log(Level.INFO, "User input received: " + input);
-        return input.equalsIgnoreCase("y"); //"y" (case insensitive) to repeat, anything else exits program
-    }
-
     private static void confirmInputForChosenSorter() {
         while (!valid) { //Repeat until valid is true
-            System.out.println("1. BubbleSort\n2. MergeSort\n3. TreeSort\n4. InsertionSort");
+            System.out.println("1. BubbleSort\n" +
+                    "2. MergeSort\n" +
+                    "3. TreeSort\n" +
+                    "4. InsertionSort");
             input = console.nextLine();
             logger.log(Level.INFO, "User input received: " + input);
             if (input == null || input.equals("")) {
@@ -77,14 +99,18 @@ public class DisplayManager {
 
     private static void confirmInputForArraySize() {
         while (!valid) {
-            System.out.println("CAUTION! Entering numbers greater than " + Integer.MAX_VALUE + "\nor smaller than " + Integer.MIN_VALUE + " will be rejected!");
+            System.out.println("CAUTION! Entering numbers greater than " + Integer.MAX_VALUE + "\n" +
+                    "or smaller than " + Integer.MIN_VALUE + " will be rejected!");
             System.out.println("Please enter a number:");
+
             input = console.nextLine();
             logger.log(Level.INFO, "User input received: " + input);
+
             if (input == null || input.equals("")) {
                 logger.log(Level.INFO, "User input was null or empty");
                 continue; //If input is empty, repeat input request
             }
+
             try {
                 arraySize = SortManager.getArraySize(input); //Attempt to assign user input into int, may throw an exception
             } catch (IllegalArgumentException e) {
@@ -92,7 +118,18 @@ public class DisplayManager {
                 System.out.println(e.getMessage()); //Print exception message, repeat input request
                 continue;
             }
+
             valid = true;
         }
+    }
+
+    private static boolean confirmInputForRepeat() {
+        System.out.println("Would you like to re-run the program?\n" +
+                "[Y] for yes, or any other key to close.");
+
+        input = console.nextLine();
+        logger.log(Level.INFO, "User input received: " + input);
+
+        return input.equalsIgnoreCase("y"); //"y" (case insensitive) to repeat, anything else exits program
     }
 }

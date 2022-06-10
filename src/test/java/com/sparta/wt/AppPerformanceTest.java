@@ -14,19 +14,19 @@ public class AppPerformanceTest {
     private static int[] sortedArray = new int[500];
     private static final Logger logger = LogConfiguration.getLogger();
 
-    static void setup() {
-        logger.setLevel(Level.OFF);
-        for (int i = 0; i < array.length; i++) {
-            array[i] = randomNumGen.nextInt(1_000);
-        }
-    }
-
     public static void main(String[] args) {
         setup();
         perfTest(SortManager.getSortMethod("1"));
         perfTest(SortManager.getSortMethod("2"));
         perfTest(SortManager.getSortMethod("3"));
         perfTest(SortManager.getSortMethod("4"));
+    }
+
+    static void setup() {
+        logger.setLevel(Level.OFF);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = randomNumGen.nextInt(1_000);
+        }
     }
 
     static void perfTest(Sorter sortAlgorithm) {

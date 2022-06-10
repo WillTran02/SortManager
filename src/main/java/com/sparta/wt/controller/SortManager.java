@@ -7,6 +7,7 @@ import com.sparta.wt.model.insertion_sort.Inserter;
 import com.sparta.wt.model.merge_sort.Merge;
 import com.sparta.wt.model.Sorter;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,11 +19,13 @@ public class SortManager {
 
     public static Sorter getSortMethod(String input) {
         int option;
+
         try {
             option = Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("You have entered something invalid: " + input + "\nPlease enter a number between 1-4.");
         }
+
         switch (option) {
             case 1:
                 logger.log(Level.INFO, "Request received: BubbleSort");
@@ -44,6 +47,7 @@ public class SortManager {
 
     public static int getArraySize(String input) {
         int option;
+
         try {
             option = Integer.parseInt(input);
             if (option < 0) throw new NegativeArraySizeException();
@@ -51,11 +55,12 @@ public class SortManager {
             logger.log(Level.INFO, "Exception: The input was not a valid option");
             throw new IllegalArgumentException("You have entered something invalid: " + input);
         }
+
         return option;
     }
 
     public static void fillArrayWithRandomNumbers(int[] arrayOfNumbers) {
-        logger.log(Level.INFO, "Now populating Array:" + arrayOfNumbers + " with random numbers...");
+        logger.log(Level.INFO, "Now populating Array:" + Arrays.hashCode(arrayOfNumbers) + " with random numbers...");
         for (int i = 0; i < arrayOfNumbers.length; i++) {
             arrayOfNumbers[i] = random.nextInt(1000);
         }
