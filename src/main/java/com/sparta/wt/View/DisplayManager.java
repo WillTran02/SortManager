@@ -26,7 +26,7 @@ public class DisplayManager {
             valid = false; //Reset flag
             input = null; //Reset input
             System.out.println("Hello and welcome to the Sort Manager!\n");
-            System.out.println("To begin with, please enter a number 1-3 \nto decide what sort method to use!");
+            System.out.println("To begin with, please enter a number 1-4 \nto decide what sort method to use!");
             confirmInputForChosenSorter();
             System.out.println("-------------------\nOkay! You have chosen to use: " + chosenSorter + "!");
             System.out.println("Now to create an array of random numbers!");
@@ -56,7 +56,7 @@ public class DisplayManager {
 
     private static void confirmInputForChosenSorter() {
         while (!valid) { //Repeat until valid is true
-            System.out.println("1. BubbleSort\n2. MergeSort\n3. TreeSort");
+            System.out.println("1. BubbleSort\n2. MergeSort\n3. TreeSort\n4. InsertionSort");
             input = console.nextLine();
             logger.log(Level.INFO, "User input received: " + input);
             if (input == null || input.equals("")) {
