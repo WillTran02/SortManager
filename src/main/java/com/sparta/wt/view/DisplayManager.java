@@ -39,7 +39,7 @@ public class DisplayManager {
             System.out.println("-------------------\nYour chosen sorting algorithm: " + chosenSorter);
             int[] sortedArray = chosenSorter.sortArray(arrayOfNumbers); //Create new array of sorted numbers
             System.out.println("-------------------\nYour array, sorted:\n" + Arrays.toString(sortedArray));
-            System.out.println("-------------------\nTime taken to complete the sort: " + chosenSorter.getTimeTaken() / 1_000_000 + "ns");
+            System.out.println("-------------------\nTime taken to complete the sort: " + chosenSorter.getTimeTaken() / 1_000_000 + "ms");
             valid = false; //Reset flag
             input = null; //Reset input
             repeating = confirmInputForRepeat();
